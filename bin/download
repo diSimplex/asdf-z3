@@ -1,0 +1,11 @@
+#!/bin/sh
+
+mkdir -p $ASDF_DOWNLOAD_PATH
+cd $ASDF_DOWNLOAD_PATH
+
+curl --output z3.tar.gz \
+  https://codeload.github.com/Z3Prover/z3/tar.gz/refs/tags/$ASDF_INSTALL_TYPE
+
+tar xvf z3.tar.gz --strip-components=1
+
+rm -rf z3.tar.gz

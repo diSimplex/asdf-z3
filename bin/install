@@ -1,0 +1,18 @@
+#!/bin/sh
+
+mkdir -p $ASDF_DOWNLOAD_PATH
+cd $ASDF_DOWNLOAD_PATH
+
+python scripts/mk_make.py --prefix=$ASDF_INSTALL_PATH
+cd build
+make -j$(nproc)
+mkdir -p $ASDF_INSTALL_PATH
+make install
+
+cp -R python $ASDF_INSTALL_PATH
+
+cd $ASDF_INSTALL_PATH/python
+
+rm -rf libz3.so
+
+ln -s ../lib/libz3.so .
