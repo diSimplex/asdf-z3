@@ -1,0 +1,4 @@
+To compile you MUST have
+  1. a C++ compiler (either clang or GNU g++)
+  2. make (GNU make)
+  3. Python (Python v3.x.x)

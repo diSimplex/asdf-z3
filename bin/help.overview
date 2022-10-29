@@ -1,0 +1,5 @@
+Compile and install the Z3 theorem prover from the sources associated with
+the specified release. Since this is a full compilation, it will take some
+time!
+
+See: https://github.com/Z3Prover/z3
