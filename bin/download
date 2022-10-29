@@ -1,10 +1,21 @@
 #!/bin/sh
 
+if [ "$ASDF_INSTALL_TYPE" != "version" ] ; then
+  echo "Sorry you must specify a valid released verion number"
+  exit 1
+fi
+
+echo "Downloading z3 [$ASDF_INSTALL_VERSION] sources to [$ASDF_DOWNLOAD_PATH]"
+echo ""
+
 mkdir -p $ASDF_DOWNLOAD_PATH
 cd $ASDF_DOWNLOAD_PATH
 
+echo curl --output z3.tar.gz \
+  https://codeload.github.com/Z3Prover/z3/tar.gz/refs/tags/$ASDF_INSTALL_VERSION
+
 curl --output z3.tar.gz \
-  https://codeload.github.com/Z3Prover/z3/tar.gz/refs/tags/$ASDF_INSTALL_TYPE
+  https://codeload.github.com/Z3Prover/z3/tar.gz/refs/tags/$ASDF_INSTALL_VERSION
 
 tar xvf z3.tar.gz --strip-components=1
 
